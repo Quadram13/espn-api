@@ -1,10 +1,13 @@
 # Helper functions for json parsing and power rankings
 
-def json_parsing(obj, key):
-    """Recursively pull values of specified key from nested JSON."""
-    arr = []
+from typing import Any, List
 
-    def extract(obj, arr, key):
+
+def json_parsing(obj: Any, key: str) -> Any:
+    """Recursively pull values of specified key from nested JSON."""
+    arr: List[Any] = []
+
+    def extract(obj: Any, arr: List[Any], key: str) -> List[Any]:
         """Return all matching values in an object."""
         if isinstance(obj, dict):
             for k, v in obj.items():
